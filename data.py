@@ -2,8 +2,9 @@ class_names = ['cloud', 'sun', 'pants', 'umbrella', 'table', 'ladder', 'eyeglass
 
 import urllib.request
 import os 
+import numpy as np
 
-def download_and_load(max_items_per_class = 10000):
+def download_and_load(test_split = 0.2, max_items_per_class = 10000):
   root = 'data'
   os.mkdir('data')
   print('downloading ...')
@@ -39,13 +40,14 @@ def download_and_load(max_items_per_class = 10000):
   x = 255 - np.reshape(x, (x.shape[0], 28, 28))
 
   #separate into training and testing 
-  vfold_size = int(x.shape[0]/100*(vfold_ratio*100))
+  test_size  = int(x.shape[0]/100*(test_split*100))
 
-  x_test = x[0:vfold_size, :]
-  y_test = y[0:vfold_size]
+  x_test = x[0:test_size, :]
+  y_test = y[0:test_size]
 
-  x_train = x[vfold_size:x.shape[0], :]
-  y_train = y[vfold_size:y.shape[0]]
+  x_train = x[test_size:x.shape[0], :]
+  y_train = y[test_size:y.shape[0]]
+  
   print('Training Data : ', x_train.shape[0])
   print('Testing  Data : ', x_test.shape[0])
   return x_train, y_train, x_test, y_test, class_names

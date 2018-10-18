@@ -48,4 +48,4 @@ def download_and_load(max_items_per_class = 10000):
   y_train = y[vfold_size:y.shape[0]]
   print('Training Data : ', x_train.shape[0])
   print('Testing  Data : ', x_test.shape[0])
-  return x_train, y_train, x_test, y_test
+  return x_train, y_train, x_test, y_test, class_names

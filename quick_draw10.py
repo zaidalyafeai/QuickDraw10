@@ -3,6 +3,22 @@ class_names = ['cloud', 'sun', 'pants', 'umbrella', 'table', 'ladder', 'eyeglass
 import urllib.request
 import os 
 import numpy as np
+from sklearn.manifold import TSNE
+# We'll use matplotlib for graphics.
+import matplotlib.pyplot as plt
+import matplotlib.patheffects as PathEffects
+import matplotlib
+
+# Random state.
+RS = 20150101
+
+# We import seaborn to make nice plots.
+import seaborn as sns
+sns.set_style('darkgrid')
+sns.set_palette('muted')
+sns.set_context("notebook", font_scale=1.5,
+                rc={"lines.linewidth": 2.5})
+
 
 def download_and_load(test_split = 0.2, max_items_per_class = 10000):
   root = 'data'
@@ -51,3 +67,33 @@ def download_and_load(test_split = 0.2, max_items_per_class = 10000):
   print('Training Data : ', x_train.shape[0])
   print('Testing  Data : ', x_test.shape[0])
   return x_train, y_train, x_test, y_test, class_names
+
+def scatter(x, colors):
+    # We choose a color palette with seaborn.
+    palette = np.array(sns.color_palette("hls", 10))
+
+    # We create a scatter plot.
+    f = plt.figure(figsize=(8, 8))
+    ax = plt.subplot(aspect='equal')
+    sc = ax.scatter(x[:,0], x[:,1], lw=0, s=40,
+                    c=palette[colors.astype(np.int)])
+    plt.xlim(-25, 25)
+    plt.ylim(-25, 25)
+    ax.axis('off')
+    ax.axis('tight')
+
+    # We add the labels for each digit.
+    txts = []
+    for i in range(10):
+        # Position of each label.
+        xtext, ytext = np.median(x[colors == i, :], axis=0)
+        txt = ax.text(xtext, ytext, class_names[i], fontsize=15)
+        txt.set_path_effects([
+            PathEffects.Stroke(linewidth=5, foreground="w"),
+            PathEffects.Normal()])
+        txts.append(txt)
+        
+def plot_tsne(X, y):
+  print('calculating tsne ...')
+  proj = TSNE(random_state=RS).fit_transform(X)
+  scatter(proj, y)

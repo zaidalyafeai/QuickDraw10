@@ -42,8 +42,8 @@ Each training and test example is assigned to one of the following labels:
 ```python
 import numpy as np
 
-train_data = np.load('datasets/train-ubyte.npz')
-test_data  = np.load('datasets/test-ubyte.npz')
+train_data = np.load('dataset/train-ubyte.npz')
+test_data  = np.load('dataset/test-ubyte.npz')
 
 x_train, y_train = train_data['a'], test_data['b']
 x_test,  y_test  = test_data['a'],  test_data['b']

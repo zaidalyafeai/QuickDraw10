@@ -5,13 +5,8 @@ This dataset was collected by Google from people drawing different objects. The 
 ![alt text](https://raw.githubusercontent.com/zaidalyafeai/QuickDraw10/master/images/qd-img.png)
 ![alt text](https://raw.githubusercontent.com/zaidalyafeai/QuickDraw10/master/images/qd-tsne.png)
 
-## Pros of MNIST
-
-*   It is like the "Hello World" in machine learning. 
-*   The dataset is really small with where each image has a dimnesion 28 x 28.
-*   It can be used as a toy example for testing new models. 
-
-## Cons of MNIST
+## Alternative for MNIST
+MNIST has many disadvantages
 
 *   No great variablitiy in the data for each class. The number of strokes is limited for each drawn digit. 
 *  Most MNIST pairs could be distinguised by just one pixel. See [this](https://gist.github.com/dgrtwo/aaef94ecc6a60cd50322c0054cc04478). 
@@ -20,7 +15,7 @@ This dataset was collected by Google from people drawing different objects. The 
 ## Get the Data
 
 | Name  | Content | Examples | Size | Link|
-| --- | --- |--- | --- |--- |--- |
+| --- | --- |--- | --- |--- |
 | `train-ubyte.npz`  | training set images and labels  | 80,000|21 MBytes | [Download](https://github.com/zaidalyafeai/QuickDraw10/blob/master/dataset/train-ubyte.npz?raw=true)|
 | `train-ubyte.npz`  | testing set images and labels  | 20,000|6  MBytes | [Download](https://github.com/zaidalyafeai/QuickDraw10/blob/master/dataset/test-ubyte.npz?raw=true)|
 

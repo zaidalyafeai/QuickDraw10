@@ -17,7 +17,7 @@ MNIST has many disadvantages
 | Name  | Content | Examples | Size | Link|
 | --- | --- |--- | --- |--- |
 | `train-ubyte.npz`  | training set images and labels  | 80,000|21 MBytes | [Download](https://github.com/zaidalyafeai/QuickDraw10/blob/master/dataset/train-ubyte.npz?raw=true)|
-| `train-ubyte.npz`  | testing set images and labels  | 20,000|6  MBytes | [Download](https://github.com/zaidalyafeai/QuickDraw10/blob/master/dataset/test-ubyte.npz?raw=true)|
+| `test-ubyte.npz`  | testing set images and labels  | 20,000|6  MBytes | [Download](https://github.com/zaidalyafeai/QuickDraw10/blob/master/dataset/test-ubyte.npz?raw=true)|
 
 Alternatively, you can clone this GitHub repository; the dataset appears under `dataset/`.
 

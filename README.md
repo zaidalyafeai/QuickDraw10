@@ -45,6 +45,6 @@ import numpy as np
 train_data = np.load('dataset/train-ubyte.npz')
 test_data  = np.load('dataset/test-ubyte.npz')
 
-x_train, y_train = train_data['a'], test_data['b']
+x_train, y_train = train_data['a'], train_data['b']
 x_test,  y_test  = test_data['a'],  test_data['b']
 ```
